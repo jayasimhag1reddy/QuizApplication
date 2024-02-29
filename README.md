@@ -18,12 +18,11 @@ getAllQuizzes-> to retrieve all quizzes.
 getQuiz/{id}-> to get a specific quiz based on the quiz id.
 Submit/{id}->calculate the score of the submitted quiz by specifing the quizID.
 
-Room for improvement:
-1) You can add additional features to both QuestionController and QuizController.
+Room for improvement:You can add additional features to both QuestionController and QuizController.
 
 TECH STACK:
-Spring boot
-Spring JPA
-Spring hibernate
-PostGreSQL
+Spring boot,
+Spring JPA,
+Spring hibernate,
+PostGreSQL,
 MAVEN
