@@ -1,6 +1,8 @@
 package com.jay.QuizApp.Controller;
 
+import com.jay.QuizApp.Model.Answers;
 import com.jay.QuizApp.Model.Question;
+import com.jay.QuizApp.Model.QuestionWrapper;
 import com.jay.QuizApp.Model.Quiz;
 import com.jay.QuizApp.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +26,16 @@ public class QuizController {
         return quizService.create(numQ,title,cat);
     }
     @GetMapping("getQuiz/{id}")
-    public ResponseEntity<Optional<Quiz>> getQuiz(@PathVariable Integer id){
+    public ResponseEntity<List<QuestionWrapper>> getQuiz(@PathVariable Integer id){
         return quizService.getQuiz(id);
     }
     @GetMapping("getAllQuizzes")
-    public ResponseEntity<List<Quiz>> getAllQuizzes(){
+    public ResponseEntity<List<List<QuestionWrapper>>> getAllQuizzes(){
+
         return quizService.getAllQuizzes();
+    }
+    @PostMapping("submit/{id}")
+    public  ResponseEntity<Integer> submit(@PathVariable Integer id, @RequestBody List<Answers> answer){
+        return quizService.submit(id,answer);
     }
 }
